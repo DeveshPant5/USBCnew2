@@ -1,0 +1,31 @@
+.services-section {
+  padding: 100px 0;
+  background-color: var(--bg-secondary); /* Slight contrast from white Hero */
+}
+
+.service-card {
+  background: white;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-sm); /* Subtle shadow */
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  border-color: #a5b4fc; /* Light indigo border on hover */
+  box-shadow: var(--shadow-lg); /* Larger shadow to lift up */
+}
+
+.icon-wrapper {
+  color: #4f46e5; /* Deep Indigo Icon */
+}
+
+.service-desc {
+  color: var(--text-secondary);
+}
+
+.service-card h3 {
+  color: var(--text-primary);
+}

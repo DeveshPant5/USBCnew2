@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  /* BRIGHT THEME PALETTE */
+  --bg-main: #ffffff;       /* Pure White Background */
+  --bg-secondary: #f8fafc;  /* Very Light Slate for sections */
+  --bg-card: rgba(255, 255, 255, 0.8); /* Glass effect for light mode */
+  
+  /* Vibrant Gradients (Adjusted for Light Mode) */
+  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #8B5CF6 100%); /* Blue -> Purple */
+  --gradient-text: linear-gradient(135deg, #1e293b 0%, #4f46e5 100%); /* Dark Blue -> Indigo Text */
+  
+  /* Text Colors (High Contrast) */
+  --text-primary: #0f172a;  /* Deep Slate (Almost Black) */
+  --text-secondary: #64748b; /* Cool Grey */
+  
+  --border: #e2e8f0;        /* Light Grey Border */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+  /* Typography */
+  --font-heading: 'Libre Baskerville', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-main);
+  /* Subtle mesh gradient for the white background */
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(59, 130, 246, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, rgba(139, 92, 246, 0.08) 0px, transparent 50%);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  font-weight: 700; /* Bolder headings look better in light mode */
+}
+
+/* Italic Accent Style */
+h1 i, h1 em, .italic-accent {
+  font-family: var(--font-heading);
+  font-style: italic;
+  color: #6366f1; /* Indigo accent for italics */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+button {
+  font-family: var(--font-body);
+  letter-spacing: 0.02em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
