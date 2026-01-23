@@ -113,7 +113,9 @@ const Hero = () => {
           marginBottom: '56px',
           flexWrap: 'wrap'
         }}>
-          <motion.button 
+          {/* Added textDecoration: 'none' here */}
+          <a href="https://forms.gle/9U87f5K9tjChFUjXA" style={{ textDecoration: 'none' }}>
+            <motion.button 
             whileHover={{ scale: 1.03, boxShadow: '0 12px 28px -8px rgba(15, 23, 42, 0.35)' }}
             whileTap={{ scale: 0.98 }}
             style={{ 
@@ -130,9 +132,9 @@ const Hero = () => {
               boxShadow: '0 8px 20px -8px rgba(15, 23, 42, 0.3)',
               cursor: 'pointer',
               transition: 'all 0.2s ease'
-            }}>
+            }} >    
             Get Started <ArrowRight size={18} strokeWidth={2.5} />
-          </motion.button>
+          </motion.button></a>
           
           <motion.button 
             whileHover={{ 
