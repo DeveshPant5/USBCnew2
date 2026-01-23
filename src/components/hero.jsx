@@ -133,7 +133,7 @@ const Hero = () => {
               cursor: 'pointer',
               transition: 'all 0.2s ease'
             }} >    
-            Get Started <ArrowRight size={18} strokeWidth={2.5} />
+            Apply Now <ArrowRight size={18} strokeWidth={2.5} />
           </motion.button></a>
           
           <motion.button 

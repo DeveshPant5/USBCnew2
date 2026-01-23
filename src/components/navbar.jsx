@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
+// IMPORT THE LOGO HERE (Adjust path if you saved it elsewhere)
+import logoImg from '../assets/logo.png'; 
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -50,9 +52,10 @@ const Navbar = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="container nav-container">
-        {/* Logo */}
+        {/* --- MODIFIED LOGO SECTION --- */}
         <a href="#" className="logo">
-          USBC Capital<span className="dot">.</span>
+          <img src={logoImg} alt="USBC Funding Logo" className="logo-icon" />
+          <span>USBC Funding <span className="dot">.</span></span>
         </a>
         
         {/* Desktop Navigation */}

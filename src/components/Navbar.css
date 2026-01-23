@@ -7,14 +7,12 @@
   height: 80px;
   z-index: 1000;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-bottom: 1px solid transparent;
+  background: rgba(255, 255, 255, 0.95); /* Added default background */
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   height: 70px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
 }
@@ -25,49 +23,47 @@
   padding: 0 24px;
 }
 
+/* --- THE MAIN LAYOUT FIX --- */
 .nav-container {
   height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  /* This ensures space is distributed safely */
+  justify-content: space-between; 
 }
 
-/* Logo */
+/* 1. Left Section: Logo */
 .logo {
-  font-family: var(--font-heading), system-ui, -apple-system, sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #0f172a;
-  letter-spacing: -0.04em;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
+  gap: 12px;
+  text-decoration: none;
+  color: #0f172a;
+  font-weight: 800;
+  font-size: 1.5rem;
+  letter-spacing: -0.04em;
   z-index: 10;
-  cursor: pointer;
-  transition: opacity 0.2s ease;
+  min-width: max-content; /* Prevents logo from getting squashed */
 }
 
-.logo:hover {
-  opacity: 0.8;
+.logo-icon {
+  height: 40px;
+  width: auto;
+  display: block;
 }
 
-.dot { 
-  color: #3b82f6;
-  margin-left: 2px;
-}
+.dot { color: #3b82f6; }
 
-/* Desktop Navigation */
+/* 2. Middle Section: Navigation */
 .nav-center {
   display: flex;
-  gap: 8px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  align-items: center;
+  gap: 24px; /* Space between links */
+  /* Remove absolute positioning to prevent overlaps */
+  margin: 0 20px; 
 }
 
-.nav-item-wrapper {
-  position: relative;
-}
+.nav-item-wrapper { position: relative; }
 
 .nav-link {
   display: flex;
@@ -75,11 +71,11 @@
   gap: 4px;
   color: #64748b;
   text-decoration: none;
-  font-size: 0.9rem;
   font-weight: 500;
-  padding: 8px 14px;
+  font-size: 0.95rem;
+  padding: 8px 12px;
   border-radius: 8px;
-  transition: all 0.2s ease;
+  transition: all 0.2s;
   white-space: nowrap;
 }
 
@@ -88,286 +84,94 @@
   background: rgba(15, 23, 42, 0.04);
 }
 
-/* Dropdown Menu */
+/* 3. Right Section: Buttons (Contact) */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: max-content;
+}
+
+/* CTA Button Styles */
+.nav-cta-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+  color: white;
+  padding: 10px 24px;
+  border-radius: 99px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.nav-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Dropdown Menu Styles */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 12px);
+  top: 100%;
   left: 0;
+  margin-top: 8px;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.12);
   padding: 8px;
-  min-width: 240px;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  min-width: 260px;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
 .dropdown-item {
   display: block;
-  padding: 12px 16px;
+  padding: 12px;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.15s ease;
 }
 
-.dropdown-item:hover {
-  background: rgba(59, 130, 246, 0.05);
-}
+.dropdown-item:hover { background: rgba(59, 130, 246, 0.05); }
 
 .dropdown-item-title {
+  font-weight: 600;
   color: #0f172a;
   font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 2px;
 }
 
 .dropdown-item-desc {
   color: #64748b;
   font-size: 0.8rem;
-  font-weight: 400;
 }
 
-/* Hamburger Menu */
-.hamburger {
-  display: none;
-  background: none;
-  border: none;
-  color: #0f172a;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 10;
-  transition: all 0.2s ease;
+/* Mobile & Responsive */
+.hamburger { display: none; background: none; border: none; cursor: pointer; }
+
+@media (max-width: 1024px) {
+  .nav-center, .nav-actions { display: none; }
+  .hamburger { display: block; }
 }
 
-.hamburger:hover {
-  background: rgba(15, 23, 42, 0.04);
-  border-radius: 8px;
-}
-
-/* Mobile Menu */
+/* Mobile Menu Styles (Keep existing or simple version) */
 .mobile-menu {
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 80px;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.98);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background: white;
+  border-bottom: 1px solid #eee;
   overflow: hidden;
-  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
 }
-
-.mobile-menu-content {
-  padding: 16px 24px 24px;
-  max-height: calc(100vh - 80px);
-  overflow-y: auto;
+.mobile-menu-content { padding: 20px; }
+.mobile-nav-item { padding: 12px 0; border-bottom: 1px solid #f1f5f9; }
+.mobile-nav-link { 
+  display: flex; justify-content: space-between; 
+  width: 100%; background: none; border: none; 
+  font-size: 1rem; font-weight: 600; 
 }
-
-.mobile-nav-item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.mobile-nav-item:last-of-type {
-  border-bottom: none;
-}
-
-.mobile-nav-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 16px 0;
-  color: #0f172a;
-  text-decoration: none;
-  font-size: 1rem;
-  font-weight: 600;
-  background: none;
-  border: none;
-  text-align: left;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.mobile-nav-link:hover {
-  color: #3b82f6;
-}
-
-.mobile-dropdown-toggle svg {
-  transition: transform 0.3s ease;
-}
-
-.mobile-dropdown-toggle svg.rotated {
-  transform: rotate(180deg);
-}
-
-.mobile-dropdown {
-  overflow: hidden;
-  padding-left: 16px;
-}
-
-.mobile-dropdown-item {
-  display: block;
-  padding: 12px 0;
-  text-decoration: none;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
-}
-
-.mobile-dropdown-title {
-  color: #0f172a;
-  font-size: 0.95rem;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.mobile-dropdown-desc {
-  color: #64748b;
-  font-size: 0.85rem;
-  font-weight: 400;
-}
-
-/* Responsive Breakpoints */
-@media (max-width: 1200px) {
-  .nav-center {
-    gap: 4px;
-  }
-  
-  .nav-link {
-    padding: 8px 10px;
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 1024px) {
-  .nav-center {
-    display: none;
-  }
-  
-  .hamburger {
-    display: block;
-  }
-}
-
-@media (max-width: 768px) {
-  .navbar {
-    height: 70px;
-  }
-  
-  .navbar.scrolled {
-    height: 65px;
-  }
-  
-  .logo {
-    font-size: 1.3rem;
-  }
-  
-  .container {
-    padding: 0 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar {
-    height: 65px;
-  }
-  
-  .logo {
-    font-size: 1.2rem;
-  }
-  
-  .mobile-nav-link {
-    font-size: 0.95rem;
-  }
-}
-/* ... Keep all your existing CSS ... */
-
-/* ========================================= */
-/* NEW CTA BUTTON STYLES (Add this to bottom)*/
-/* ========================================= */
-
-/* Container for Desktop Actions */
-.nav-actions {
-  display: flex;
-  align-items: center;
-}
-
-/* Common Styles for Gradient Button */
-.nav-cta-btn,
 .mobile-cta-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-  color: white;
-  font-weight: 600;
-  border-radius: 99px; /* Pill shape */
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2), 
-              0 2px 4px -1px rgba(37, 99, 235, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-/* Desktop Specifics */
-.nav-cta-btn {
-  padding: 10px 24px;
-  font-size: 0.95rem;
-}
-
-/* Mobile Specifics */
-.mobile-cta-btn {
-  width: 100%;
-  padding: 14px;
-  font-size: 1rem;
-}
-
-/* Hover Effects (Lift & Glow) */
-.nav-cta-btn:hover,
-.mobile-cta-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4), 
-              0 4px 6px -2px rgba(37, 99, 235, 0.2);
-  background: linear-gradient(135deg, #4f8df9 0%, #3b82f6 100%);
-}
-
-.nav-cta-btn:active,
-.mobile-cta-btn:active {
-  transform: translateY(0);
-}
-
-/* Add a subtle shine animation on hover */
-.nav-cta-btn::after,
-.mobile-cta-btn::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  transform: skewX(-20deg);
-  transition: none;
-}
-
-.nav-cta-btn:hover::after,
-.mobile-cta-btn:hover::after {
-  left: 200%;
-  transition: all 0.6s ease;
-}
-
-/* ========================================= */
-/* UPDATE RESPONSIVE BREAKPOINTS             */
-/* ========================================= */
-
-@media (max-width: 1024px) {
-  /* Hide desktop Actions when mobile menu appears */
-  .nav-actions {
-    display: none;
-  }
+  display: flex; justify-content: center; align-items: center; gap: 8px;
+  background: #2563eb; color: white; width: 100%; padding: 12px;
+  border-radius: 8px; margin-top: 20px; text-decoration: none;
 }
