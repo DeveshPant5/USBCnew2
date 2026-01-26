@@ -61,11 +61,11 @@ const Hero = () => {
             fontWeight: '600', 
             letterSpacing: '0.03em'
           }}>
-            TRUSTED BY 10,000+ BUSINESSES
+            TRUSTED BY 1000+ BUSINESSES
           </span>
         </motion.div>
         
-        {/* Main headline - NO ITALIC */}
+        {/* Main headline - FIXED COLORS */}
         <h1 style={{ 
           fontSize: 'clamp(2.75rem, 5.5vw, 4.5rem)', 
           lineHeight: '1.1', 
@@ -76,10 +76,7 @@ const Hero = () => {
         }}>
           The Right Capital.<br />
           <span style={{ 
-            background: 'linear-gradient(135deg, #2563EB 0%, #059669 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
+            color: '#0F172A', // Changed to match parent color
             fontWeight: '700'
           }}>
             For Your Ambition.
@@ -89,7 +86,7 @@ const Hero = () => {
         {/* Subheadline */}
         <p style={{ 
           fontSize: '1.125rem', 
-          color: '#64748B', 
+          color: '#163663', 
           maxWidth: '640px', 
           margin: '0 auto 48px',
           lineHeight: '1.7',
@@ -100,9 +97,9 @@ const Hero = () => {
             color: '#1E293B', 
             fontWeight: '600' 
           }}>
-            instant liquidity
+            INSTANT LIQUIDITY
           </span>{' '}
-          with our AI-driven underwriting engine—backed by certified CA expertise.
+          with our Experts .
         </p>
         
         {/* CTA buttons */}
@@ -113,7 +110,6 @@ const Hero = () => {
           marginBottom: '56px',
           flexWrap: 'wrap'
         }}>
-          {/* Added textDecoration: 'none' here */}
           <a href="https://forms.gle/9U87f5K9tjChFUjXA" style={{ textDecoration: 'none' }}>
             <motion.button 
             whileHover={{ scale: 1.03, boxShadow: '0 12px 28px -8px rgba(15, 23, 42, 0.35)' }}
@@ -168,8 +164,6 @@ const Hero = () => {
           flexWrap: 'wrap'
         }}>
           {[
-            { icon: CheckCircle, text: 'RBI Compliant', color: '#059669' },
-            { icon: CheckCircle, text: 'CA Verified', color: '#059669' },
             { icon: CheckCircle, text: '24hr Disbursal', color: '#2563EB' }
           ].map((item, idx) => (
             <div 
