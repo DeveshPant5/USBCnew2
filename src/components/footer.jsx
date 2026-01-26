@@ -66,7 +66,7 @@ const Footer = () => {
         {/* Bottom Section: Copyright & Socials */}
         <div className="footer-bottom">
           <span className="copyright">
-            &copy; {new Date().getFullYear()} USBC Capital Inc. All rights reserved.
+            &copy; {new Date().getFullYear()} USBC Funding All rights reserved.
           </span>
           
           <div className="social-links">

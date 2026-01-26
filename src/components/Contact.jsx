@@ -111,7 +111,7 @@ const Contact = () => {
               </div>
               <div className="card-text">
                 <span className="card-label">Email Us</span>
-                <span className="card-value">contact@usbccapital.com</span>
+                <span className="card-value">Info@usbcfunding.com</span>
               </div>
             </div>
 
@@ -121,7 +121,7 @@ const Contact = () => {
               </div>
               <div className="card-text">
                 <span className="card-label">Visit Us</span>
-                <span className="card-value">New York, NY 10012</span>
+                <span className="card-value">2500 Treymore Drive, Suite 201, Orlando, FL, 32825</span>
               </div>
             </div>
           </div>

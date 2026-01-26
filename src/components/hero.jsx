@@ -65,7 +65,7 @@ const Hero = () => {
           </span>
         </motion.div>
         
-        {/* Main headline - FIXED COLORS */}
+        {/* Main headline */}
         <h1 style={{ 
           fontSize: 'clamp(2.75rem, 5.5vw, 4.5rem)', 
           lineHeight: '1.1', 
@@ -76,14 +76,14 @@ const Hero = () => {
         }}>
           The Right Capital.<br />
           <span style={{ 
-            color: '#0F172A', // Changed to match parent color
+            color: '#0F172A',
             fontWeight: '700'
           }}>
             For Your Ambition.
           </span>
         </h1>
         
-        {/* Subheadline */}
+        {/* Subheadline - Fixed typos */}
         <p style={{ 
           fontSize: '1.125rem', 
           color: '#163663', 
@@ -99,60 +99,37 @@ const Hero = () => {
           }}>
             INSTANT LIQUIDITY
           </span>{' '}
-          with our Experts .
+          with our Experts.
         </p>
         
-        {/* CTA buttons */}
+        {/* CTA buttons - Removed "View Rates" */}
         <div style={{ 
           display: 'flex', 
-          gap: '16px', 
           justifyContent: 'center',
-          marginBottom: '56px',
-          flexWrap: 'wrap'
+          marginBottom: '56px'
         }}>
           <a href="https://forms.gle/9U87f5K9tjChFUjXA" style={{ textDecoration: 'none' }}>
             <motion.button 
-            whileHover={{ scale: 1.03, boxShadow: '0 12px 28px -8px rgba(15, 23, 42, 0.35)' }}
-            whileTap={{ scale: 0.98 }}
-            style={{ 
-              background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
-              color: 'white', 
-              border: 'none', 
-              padding: '18px 40px', 
-              borderRadius: '10px',
-              fontSize: '1rem', 
-              fontWeight: '600', 
-              display: 'flex', 
-              alignItems: 'center', 
-              gap: '10px',
-              boxShadow: '0 8px 20px -8px rgba(15, 23, 42, 0.3)',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease'
-            }} >    
-            Apply Now <ArrowRight size={18} strokeWidth={2.5} />
-          </motion.button></a>
-          
-          <motion.button 
-            whileHover={{ 
-              scale: 1.03, 
-              background: '#F8FAFC',
-              borderColor: '#94A3B8'
-            }}
-            whileTap={{ scale: 0.98 }}
-            style={{ 
-              background: 'white', 
-              border: '1.5px solid #CBD5E1',
-              color: '#0F172A', 
-              padding: '18px 40px', 
-              borderRadius: '10px', 
-              fontSize: '1rem', 
-              fontWeight: '600',
-              cursor: 'pointer',
-              transition: 'all 0.2s ease',
-              boxShadow: '0 2px 8px rgba(15, 23, 42, 0.05)'
-            }}>
-            View Rates
-          </motion.button>
+              whileHover={{ scale: 1.03, boxShadow: '0 12px 28px -8px rgba(15, 23, 42, 0.35)' }}
+              whileTap={{ scale: 0.98 }}
+              style={{ 
+                background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
+                color: 'white', 
+                border: 'none', 
+                padding: '18px 40px', 
+                borderRadius: '10px',
+                fontSize: '1rem', 
+                fontWeight: '600', 
+                display: 'flex', 
+                alignItems: 'center', 
+                gap: '10px',
+                boxShadow: '0 8px 20px -8px rgba(15, 23, 42, 0.3)',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease'
+              }} >    
+              Apply Now <ArrowRight size={18} strokeWidth={2.5} />
+            </motion.button>
+          </a>
         </div>
 
         {/* Trust indicators */}

@@ -1,4 +1,4 @@
-import { UserPlus, Target, Trophy, Wallet } from 'lucide-react';
+import { UserPlus, Target, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const HowItWorks = () => {
@@ -20,12 +20,6 @@ const HowItWorks = () => {
       title: "Get Funded",
       description: "Pass evaluation and receive your funded account within 24 hours",
       time: "24 hours"
-    },
-    {
-      icon: Wallet,
-      title: "Trade & Withdraw",
-      description: "Start trading with our capital and request payouts anytime",
-      time: "7-14 days"
     }
   ];
 
@@ -61,13 +55,13 @@ const HowItWorks = () => {
             maxWidth: '600px',
             margin: '0 auto'
           }}>
-            Four simple steps to becoming a funded trader
+            Three simple steps to becoming a funded trader
           </p>
         </motion.div>
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', // Increased min-width slightly for better 3-column look
           gap: '40px',
           position: 'relative'
         }}>
@@ -97,10 +91,12 @@ const HowItWorks = () => {
                 <step.icon size={36} color="#FFFFFF" strokeWidth={2} />
               </div>
 
+              {/* Number Badge */}
               <div style={{
                 position: 'absolute',
-                top: '-8px',
-                left: '-8px',
+                top: '0', 
+                left: '50%',
+                transform: 'translate(-50%, -50%) translateX(-40px) translateY(-10px)', // Adjusted to sit nicely on the icon corner
                 width: '32px',
                 height: '32px',
                 background: '#0F172A',
@@ -110,7 +106,8 @@ const HowItWorks = () => {
                 justifyContent: 'center',
                 fontSize: '0.875rem',
                 fontWeight: '700',
-                color: '#FFFFFF'
+                color: '#FFFFFF',
+                zIndex: 2
               }}>
                 {index + 1}
               </div>

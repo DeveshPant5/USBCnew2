@@ -4,7 +4,7 @@ import Services from './components/services';
 import Comparison from './components/comparison';
 import Footer from './components/footer';
 import './App.css';
-import Pricing from './components/Pricing';
+// import Pricing from './components/Pricing';
 import HowItWorks from './components/HowItWorks';
 import SuccessStories from './components/SuccessStories';
 import Education from './components/EDU';
@@ -21,7 +21,7 @@ function App() {
       <About />
       <Education />
       {/* <Services /> */}
-      <Pricing />
+      {/* <Pricing /> */}
       <Comparison />
       <SuccessStories />
       <Contact />
