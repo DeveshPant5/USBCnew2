@@ -1,0 +1,254 @@
+/* How It Works Section - Responsive Design */
+
+.how-it-works-section {
+    padding: 140px 0;
+    background: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+}
+
+.how-it-works-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+}
+
+/* Header */
+.how-it-works-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.how-it-works-label {
+    font-size: 0.813rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #f36f21;
+    margin-bottom: 20px;
+}
+
+.how-it-works-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #0d3b54;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+}
+
+.how-it-works-title em {
+    font-style: italic;
+    color: #f36f21;
+}
+
+.how-it-works-subtitle {
+    font-size: 1.125rem;
+    color: #6b7280;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Steps Grid */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+    position: relative;
+    align-items: stretch;
+}
+
+/* Step Card */
+.step-card {
+    position: relative;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.step-icon-wrapper {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.step-icon-box {
+    width: 88px;
+    height: 88px;
+    background: linear-gradient(135deg, #0d3b54 0%, #1a5a7a 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.step-number {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 36px;
+    height: 36px;
+    background: #f36f21;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+    z-index: 2;
+}
+
+.step-title {
+    font-size: 1.375rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 12px;
+}
+
+.step-description {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 280px;
+    flex: 1;
+}
+
+.step-time {
+    display: inline-block;
+    padding: 8px 20px;
+    background: transparent;
+    border: 2px solid #0d3b54;
+    border-radius: 4px;
+    color: #0d3b54;
+    font-size: 0.813rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* ============ RESPONSIVE DESIGN ============ */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .how-it-works-section {
+        padding: 100px 0;
+    }
+
+    .how-it-works-container {
+        padding: 0 32px;
+    }
+
+    .how-it-works-header {
+        margin-bottom: 60px;
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+
+    .step-icon-box {
+        width: 72px;
+        height: 72px;
+    }
+
+    .step-icon-box svg {
+        width: 32px;
+        height: 32px;
+    }
+
+    .step-number {
+        width: 32px;
+        height: 32px;
+        font-size: 0.813rem;
+    }
+
+    .step-title {
+        font-size: 1.125rem;
+    }
+
+    .step-description {
+        font-size: 0.875rem;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .how-it-works-section {
+        padding: 80px 0;
+    }
+
+    .how-it-works-container {
+        padding: 0 24px;
+    }
+
+    .how-it-works-header {
+        margin-bottom: 48px;
+    }
+
+    .how-it-works-subtitle {
+        font-size: 1rem;
+    }
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .step-card {
+        padding: 32px 24px;
+        background: #f9fafb;
+        border-radius: 12px;
+        border: 1px solid rgba(13, 59, 84, 0.08);
+    }
+
+    .step-icon-wrapper {
+        margin-bottom: 24px;
+    }
+
+    .step-icon-box {
+        width: 80px;
+        height: 80px;
+    }
+
+    .step-title {
+        font-size: 1.25rem;
+    }
+
+    .step-description {
+        font-size: 0.95rem;
+        max-width: 100%;
+    }
+}
+
+/* Small Mobile */
+@media (max-width: 400px) {
+    .how-it-works-container {
+        padding: 0 16px;
+    }
+
+    .steps-grid {
+        gap: 32px;
+    }
+
+    .step-card {
+        padding: 24px 20px;
+    }
+
+    .step-icon-box {
+        width: 72px;
+        height: 72px;
+    }
+
+    .step-time {
+        padding: 6px 16px;
+        font-size: 0.75rem;
+    }
+}

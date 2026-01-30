@@ -13,7 +13,7 @@ const Comparison = () => {
   return (
     <section id="comparison" className="comparison-section">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="section-title"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -22,13 +22,13 @@ const Comparison = () => {
         >
           Everything banks don't offer.
         </motion.h2>
-        
+
         <div className="table-wrapper">
           <table className="comparison-table">
             <thead>
               <tr>
                 <th style={{ width: '30%' }}>FEATURES</th>
-                <th className="col-us" style={{ width: '35%' }}>USBC CAPITAL</th>
+                <th className="col-us" style={{ width: '35%' }}>USBC FUNDING</th>
                 <th className="col-them" style={{ width: '35%' }}>TRADITIONAL BANKS</th>
               </tr>
             </thead>
@@ -42,7 +42,7 @@ const Comparison = () => {
               }}
             >
               {data.map((row, i) => (
-                <motion.tr 
+                <motion.tr
                   key={i}
                   variants={{
                     hidden: { opacity: 0, x: -20 },
@@ -64,7 +64,7 @@ const Comparison = () => {
                   </td>
                   <td className="col-them">
                     <div className="cell-content">
-                      <X size={18} className="icon-x" /> 
+                      <X size={18} className="icon-x" />
                       {row.them}
                     </div>
                   </td>

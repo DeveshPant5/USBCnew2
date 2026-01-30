@@ -1,4 +1,4 @@
-import { Users, Award, Shield, Zap } from 'lucide-react';
+import { Award, Shield, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -7,11 +7,6 @@ const About = () => {
       icon: Shield,
       title: "Transparency",
       description: "Clear rules, honest evaluation, and straightforward profit splits. No hidden fees."
-    },
-    {
-      icon: Users,
-      title: "Trader-First",
-      description: "We succeed when you succeed. Built around empowering skilled traders."
     },
     {
       icon: Award,
@@ -25,34 +20,59 @@ const About = () => {
     }
   ];
 
-  const timeline = [
-    { year: "2020", event: "USBC Founded", desc: "Mission to democratize prop trading" },
-    { year: "2021", event: "$5M Paid Out", desc: "First 1,000 traders funded" },
-    { year: "2023", event: "$50M Milestone", desc: "5,000+ active funded traders" },
-    { year: "2025", event: "$85M+ Paid", desc: "10,000+ traders globally" }
-  ];
+
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
 
   return (
     <section id="about" style={{
-      padding: '120px 0',
-      background: '#FFFFFF',
-      fontFamily: "'DM Sans', 'Roboto', sans-serif"
+      padding: '140px 0',
+      background: '#ffffff',
+      fontFamily: "'Inter', sans-serif"
     }}>
       <div className="container" style={{
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 24px'
+        padding: '0 48px'
       }}>
+        {/* Header Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '80px' }}
+          transition={{ duration: 0.8 }}
+          style={{ textAlign: 'center', marginBottom: '100px' }}
         >
+          <p style={{
+            fontSize: '0.813rem',
+            fontWeight: 600,
+            letterSpacing: '0.2em',
+            textTransform: 'uppercase',
+            color: '#f36f21',
+            marginBottom: '20px'
+          }}>
+            About Us
+          </p>
           <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
-            fontWeight: '700',
-            color: '#0F172A',
+            fontSize: 'clamp(2.25rem, 4vw, 3.5rem)',
+            fontFamily: "'Inter', sans-serif",
+            fontWeight: 600,
+            color: '#0d3b54',
             marginBottom: '24px',
             letterSpacing: '-0.02em'
           }}>
@@ -60,123 +80,78 @@ const About = () => {
           </h2>
           <p style={{
             fontSize: '1.125rem',
-            color: '#64748B',
-            maxWidth: '800px',
+            color: '#6b7280',
+            maxWidth: '700px',
             margin: '0 auto',
-            lineHeight: '1.8'
+            lineHeight: 1.8
           }}>
-            We're on a mission to empower talented traders worldwide by providing access to 
-            institutional-level capital. Since 2020, we've funded over 10,000 traders and paid 
-            out more than $85 million in profits.
+            USBC Funding secures the funding your business needs to thrive. From $10,000 to $50,000,000+, we leverage our vast network of 500+ lenders to find you the most competitive terms, fast.
           </p>
         </motion.div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-          gap: '32px',
-          marginBottom: '80px'
-        }}>
+        {/* Values Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '40px',
+            marginBottom: '120px'
+          }}
+        >
           {values.map((value, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              variants={itemVariants}
               style={{
                 textAlign: 'center',
-                padding: '32px 24px'
+                padding: '48px 32px',
+                background: '#f9fafb',
+                border: '1px solid #e5e7eb',
+                borderRadius: '8px',
+                transition: 'all 0.4s ease'
+              }}
+              whileHover={{
+                background: '#0d3b54',
+                y: -8
               }}
             >
-              <div style={{
-                width: '72px',
-                height: '72px',
-                margin: '0 auto 20px',
-                background: 'linear-gradient(135deg, #2563EB 0%, #059669 100%)',
-                borderRadius: '18px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 8px 24px rgba(37, 99, 235, 0.15)'
-              }}>
-                <value.icon size={32} color="#FFFFFF" strokeWidth={2} />
-              </div>
+              <motion.div
+                style={{
+                  width: '72px',
+                  height: '72px',
+                  margin: '0 auto 24px',
+                  background: 'linear-gradient(135deg, #0d3b54 0%, #1a5a7a 100%)',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                whileHover={{ background: 'linear-gradient(135deg, #f36f21 0%, #ff8a47 100%)' }}
+              >
+                <value.icon size={32} color="#ffffff" strokeWidth={1.5} />
+              </motion.div>
               <h3 style={{
                 fontSize: '1.25rem',
-                fontWeight: '700',
-                color: '#0F172A',
+                fontFamily: "'Inter', sans-serif",
+                fontWeight: 600,
+                color: '#1f2937',
                 marginBottom: '12px'
               }}>
                 {value.title}
               </h3>
               <p style={{
                 fontSize: '0.95rem',
-                color: '#64748B',
-                lineHeight: '1.6'
+                color: '#6b7280',
+                lineHeight: 1.7
               }}>
                 {value.description}
               </p>
             </motion.div>
           ))}
-        </div>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          style={{
-            background: 'linear-gradient(135deg, #F8FAFC 0%, #EFF6FF 100%)',
-            borderRadius: '24px',
-            padding: '64px 48px',
-            border: '2px solid #E2E8F0'
-          }}
-        >
-          <h3 style={{
-            fontSize: '2rem',
-            fontWeight: '700',
-            color: '#0F172A',
-            textAlign: 'center',
-            marginBottom: '48px'
-          }}>
-            Our Journey
-          </h3>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '40px'
-          }}>
-            {timeline.map((item, index) => (
-              <div key={index} style={{ textAlign: 'center', position: 'relative' }}>
-                <div style={{
-                  fontSize: '3rem',
-                  fontWeight: '700',
-                  background: 'linear-gradient(135deg, #2563EB 0%, #059669 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  marginBottom: '12px'
-                }}>
-                  {item.year}
-                </div>
-                <div style={{
-                  fontSize: '1.125rem',
-                  fontWeight: '700',
-                  color: '#0F172A',
-                  marginBottom: '8px'
-                }}>
-                  {item.event}
-                </div>
-                <div style={{
-                  fontSize: '0.875rem',
-                  color: '#64748B'
-                }}>
-                  {item.desc}
-                </div>
-              </div>
-            ))}
-          </div>
         </motion.div>
       </div>
     </section>

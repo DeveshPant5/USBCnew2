@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import './Navbar.css';
 // IMPORT THE LOGO HERE (Adjust path if you saved it elsewhere)
-import logoImg from '../assets/logo.png'; 
+import logoImg from '../assets/logo.png';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -27,25 +28,24 @@ const Navbar = () => {
   }, []);
 
   const navItems = [
+    { label: 'How It Works', href: '#how-it-works' },
+    { label: 'About', href: '#about' },
+    { label: 'Services', href: '#services' },
     {
       label: 'Solutions',
       href: '#solutions',
       hasDropdown: true,
       dropdownItems: [
-        { title: 'Prop Trading', desc: 'Funded trading accounts', href: '#prop-trading' },
-        { title: 'Evaluation Programs', desc: 'Prove your skills', href: '#evaluation' },
-        { title: 'Scaling Plans', desc: 'Grow your capital', href: '#scaling' },
+        { title: 'SBA Loans', desc: 'Up to $15M+ funding', href: '#services' },
+        { title: 'Asset-Based Lending', desc: 'Up to $25M+ funding', href: '#services' },
+        { title: 'Working Capital', desc: 'Fast cash flow solutions', href: '#services' },
       ]
     },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'How It Works', href: '#how-it-works' },
     { label: 'Success Stories', href: '#stories' },
-    { label: 'Education', href: '#education' },
-    { label: 'About', href: '#about' },
   ];
 
   return (
-    <motion.nav 
+    <motion.nav
       className={`navbar ${scrolled ? 'scrolled' : ''}`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -57,11 +57,11 @@ const Navbar = () => {
           <img src={logoImg} alt="USBC Funding Logo" className="logo-icon" />
           <span>USBC Funding <span className="dot">.</span></span>
         </a>
-        
+
         {/* Desktop Navigation */}
         <div className="nav-center">
           {navItems.map((item, index) => (
-            <div 
+            <div
               key={index}
               className="nav-item-wrapper"
               onMouseEnter={() => item.hasDropdown && setActiveDropdown(index)}
@@ -71,11 +71,11 @@ const Navbar = () => {
                 {item.label}
                 {item.hasDropdown && <ChevronDown size={14} strokeWidth={2.5} />}
               </a>
-              
+
               {item.hasDropdown && (
                 <AnimatePresence>
                   {activeDropdown === index && (
-                    <motion.div 
+                    <motion.div
                       className="dropdown-menu"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
@@ -96,16 +96,16 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop Contact Button */}
+        {/* Desktop Action Buttons */}
         <div className="nav-actions">
-           <a href="#contact" className="nav-cta-btn">
-             <span>Contact Us</span>
-             <ArrowRight size={16} strokeWidth={2.5} />
-           </a>
+          <a href="#contact" className="nav-cta-btn">
+            <span>Contact Us</span>
+            <ArrowRight size={16} strokeWidth={2.5} />
+          </a>
         </div>
 
         {/* Mobile Hamburger */}
-        <button 
+        <button
           className="hamburger"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle menu"
@@ -117,7 +117,7 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
+          <motion.div
             className="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -129,28 +129,28 @@ const Navbar = () => {
                 <div key={index} className="mobile-nav-item">
                   {item.hasDropdown ? (
                     <>
-                      <button 
+                      <button
                         className="mobile-nav-link mobile-dropdown-toggle"
                         onClick={() => setActiveDropdown(activeDropdown === index ? null : index)}
                       >
                         {item.label}
-                        <ChevronDown 
-                          size={16} 
+                        <ChevronDown
+                          size={16}
                           className={activeDropdown === index ? 'rotated' : ''}
                         />
                       </button>
                       <AnimatePresence>
                         {activeDropdown === index && (
-                          <motion.div 
+                          <motion.div
                             className="mobile-dropdown"
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                           >
                             {item.dropdownItems.map((dropItem, idx) => (
-                              <a 
-                                key={idx} 
-                                href={dropItem.href} 
+                              <a
+                                key={idx}
+                                href={dropItem.href}
                                 className="mobile-dropdown-item"
                                 onClick={() => setMobileMenuOpen(false)}
                               >
@@ -163,8 +163,8 @@ const Navbar = () => {
                       </AnimatePresence>
                     </>
                   ) : (
-                    <a 
-                      href={item.href} 
+                    <a
+                      href={item.href}
                       className="mobile-nav-link"
                       onClick={() => setMobileMenuOpen(false)}
                     >
@@ -173,11 +173,11 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-              
+
               {/* Mobile Contact Button */}
               <div style={{ marginTop: '24px' }}>
-                <a 
-                  href="#contact" 
+                <a
+                  href="#contact"
                   className="mobile-cta-btn"
                   onClick={() => setMobileMenuOpen(false)}
                 >

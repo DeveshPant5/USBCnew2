@@ -1,167 +1,193 @@
-import { ArrowRight, CheckCircle, Shield } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import './Hero.css';
 
 const Hero = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.46, 0.45, 0.94]
+      }
+    }
+  };
+
+  const letterVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0
+    }
+  };
+
+  const headlineText = "Your Financial Future";
+
+  const stats = [
+    { value: '$85M+', label: 'Funded' },
+    { value: '10,000+', label: 'Businesses' },
+    { value: '24hr', label: 'Disbursement' }
+  ];
+
   return (
-    <section style={{ 
-      padding: '160px 0 100px', 
-      position: 'relative',
-      overflow: 'hidden',
-      background: '#FAFBFC',
-      fontFamily: "'DM Sans', 'Roboto', 'Helvetica Neue', Arial, sans-serif"
-    }}>
-      {/* Subtle gradient blobs */}
-      <div style={{ 
-        position: 'absolute', top: '-5%', left: '5%', 
-        width: '500px', height: '500px', 
-        background: 'linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%)', 
-        filter: 'blur(120px)', 
-        borderRadius: '50%', 
-        opacity: 0.5, 
-        pointerEvents: 'none' 
-      }} />
-      <div style={{ 
-        position: 'absolute', bottom: '10%', right: '0%', 
-        width: '450px', height: '450px', 
-        background: 'linear-gradient(135deg, #F0FDF4 0%, #DCFCE7 100%)', 
-        filter: 'blur(120px)', 
-        borderRadius: '50%', 
-        opacity: 0.4, 
-        pointerEvents: 'none' 
-      }} />
-
-      <div className="container" style={{ 
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 24px',
-        textAlign: 'center', 
-        position: 'relative', 
-        zIndex: 1 
-      }}>
-        
-        {/* Trust badge */}
-        <motion.div 
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          style={{
-            display: 'inline-flex', 
-            alignItems: 'center', 
-            gap: '8px', 
-            padding: '8px 20px',
-            background: 'linear-gradient(135deg, #ffffff 0%, #f8fafc 100%)', 
-            border: '1px solid #E2E8F0',
-            borderRadius: '100px', 
-            marginBottom: '40px', 
-            boxShadow: '0 4px 16px rgba(15, 23, 42, 0.06)'
-          }}>
-          <Shield size={14} color="#059669" strokeWidth={2.5} />
-          <span style={{ 
-            color: '#475569', 
-            fontSize: '0.813rem', 
-            fontWeight: '600', 
-            letterSpacing: '0.03em'
-          }}>
-            TRUSTED BY 1000+ BUSINESSES
-          </span>
-        </motion.div>
-        
-        {/* Main headline */}
-        <h1 style={{ 
-          fontSize: 'clamp(2.75rem, 5.5vw, 4.5rem)', 
-          lineHeight: '1.1', 
-          marginBottom: '28px',
-          color: '#0F172A',
-          fontWeight: '700',
-          letterSpacing: '-0.02em'
-        }}>
-          The Right Capital.<br />
-          <span style={{ 
-            color: '#0F172A',
-            fontWeight: '700'
-          }}>
-            For Your Ambition.
-          </span>
-        </h1>
-        
-        {/* Subheadline - Fixed typos */}
-        <p style={{ 
-          fontSize: '1.125rem', 
-          color: '#163663', 
-          maxWidth: '640px', 
-          margin: '0 auto 48px',
-          lineHeight: '1.7',
-          fontWeight: '400'
-        }}>
-          Stop waiting on banks. Unlock{' '}
-          <span style={{ 
-            color: '#1E293B', 
-            fontWeight: '600' 
-          }}>
-            INSTANT LIQUIDITY
-          </span>{' '}
-          with our Experts.
-        </p>
-        
-        {/* CTA buttons - Removed "View Rates" */}
-        <div style={{ 
-          display: 'flex', 
-          justifyContent: 'center',
-          marginBottom: '56px'
-        }}>
-          <a href="https://forms.gle/9U87f5K9tjChFUjXA" style={{ textDecoration: 'none' }}>
-            <motion.button 
-              whileHover={{ scale: 1.03, boxShadow: '0 12px 28px -8px rgba(15, 23, 42, 0.35)' }}
-              whileTap={{ scale: 0.98 }}
-              style={{ 
-                background: 'linear-gradient(135deg, #0F172A 0%, #1E293B 100%)',
-                color: 'white', 
-                border: 'none', 
-                padding: '18px 40px', 
-                borderRadius: '10px',
-                fontSize: '1rem', 
-                fontWeight: '600', 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '10px',
-                boxShadow: '0 8px 20px -8px rgba(15, 23, 42, 0.3)',
-                cursor: 'pointer',
-                transition: 'all 0.2s ease'
-              }} >    
-              Apply Now <ArrowRight size={18} strokeWidth={2.5} />
-            </motion.button>
-          </a>
-        </div>
-
-        {/* Trust indicators */}
-        <div style={{ 
-          display: 'flex', 
-          gap: '40px', 
-          justifyContent: 'center',
-          alignItems: 'center',
-          flexWrap: 'wrap'
-        }}>
-          {[
-            { icon: CheckCircle, text: '24hr Disbursal', color: '#2563EB' }
-          ].map((item, idx) => (
-            <div 
-              key={idx}
-              style={{ 
-                display: 'flex', 
-                alignItems: 'center', 
-                gap: '8px'
-              }}>
-              <item.icon size={18} color={item.color} strokeWidth={2.5} />
-              <span style={{ 
-                color: '#475569', 
-                fontSize: '0.875rem', 
-                fontWeight: '500'
-              }}>
-                {item.text}
-              </span>
-            </div>
-          ))}
-        </div>
+    <section className="hero-section">
+      {/* Video Background */}
+      <div className="hero-video-container">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="hero-video"
+        >
+          <source
+            src="https://videos.pexels.com/video-files/3129671/3129671-uhd_2560_1440_30fps.mp4"
+            type="video/mp4"
+          />
+        </video>
       </div>
+
+      {/* Dark Teal Gradient Overlay */}
+      <div className="hero-overlay" />
+
+      {/* Curved Wave Divider at Bottom */}
+      <div className="hero-wave">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="hero-wave-svg"
+        >
+          <path
+            d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C57.1,118.92,147.05,68.63,321.39,56.44Z"
+            fill="#ffffff"
+          />
+        </svg>
+      </div>
+
+      {/* Large Watermark Letters */}
+      <motion.div
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: 0.06, x: 0 }}
+        transition={{ duration: 1.5, delay: 0.5 }}
+        className="hero-watermark"
+      >
+        U<br />S
+      </motion.div>
+
+      {/* Main Content */}
+      <motion.div
+        className="hero-content"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        {/* Subtitle */}
+        <motion.p variants={itemVariants} className="hero-subtitle">
+          USBC Funding
+        </motion.p>
+
+        {/* Main Headline with Word Animation */}
+        <motion.h1 className="hero-headline">
+          <motion.span className="hero-headline-words">
+            {headlineText.split(' ').map((word, index) => (
+              <motion.span
+                key={index}
+                variants={letterVariants}
+                initial="hidden"
+                animate="visible"
+                transition={{
+                  delay: 0.5 + index * 0.12,
+                  duration: 0.5,
+                  ease: [0.25, 0.46, 0.45, 0.94]
+                }}
+                className="hero-word"
+              >
+                {word}
+              </motion.span>
+            ))}
+          </motion.span>
+        </motion.h1>
+
+        {/* Description */}
+        <motion.p variants={itemVariants} className="hero-description">
+          Stop waiting on banks. Unlock <span className="hero-highlight">instant liquidity</span> with
+          our network of 500+ lenders. From $10,000 to $50,000,000+.
+        </motion.p>
+
+        {/* CTA Buttons */}
+        <motion.div variants={itemVariants} className="hero-buttons">
+          <Link to="/apply" className="hero-btn-link">
+            <motion.button
+              whileHover={{
+                backgroundColor: '#d45a10',
+                transform: 'translateY(-2px)',
+                boxShadow: '0 8px 25px rgba(243, 111, 33, 0.4)'
+              }}
+              whileTap={{ scale: 0.98 }}
+              className="hero-btn-primary"
+            >
+              Apply Now
+              <ArrowRight size={18} strokeWidth={2} />
+            </motion.button>
+          </Link>
+
+          <motion.a
+            href="#how-it-works"
+            whileHover={{
+              backgroundColor: 'rgba(255, 255, 255, 0.1)',
+              borderColor: '#ffffff'
+            }}
+            className="hero-btn-secondary"
+          >
+            Learn More
+          </motion.a>
+        </motion.div>
+
+        {/* Bottom Stats */}
+        <motion.div variants={itemVariants} className="hero-stats">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2 + index * 0.1 }}
+              className="hero-stat"
+            >
+              <div className="hero-stat-value">{stat.value}</div>
+              <div className="hero-stat-label">{stat.label}</div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 2 }}
+        className="hero-scroll-indicator"
+      >
+        <span className="hero-scroll-text">Scroll</span>
+        <motion.div
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="hero-scroll-line"
+        />
+      </motion.div>
     </section>
   );
 };

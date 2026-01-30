@@ -1,96 +1,128 @@
+/* Premium Footer Styles - Credibly Dark Teal Theme */
+
 .premium-footer {
-  background-color: #0f172a; /* Deep Slate - The "Premium" Dark Anchor */
-  color: #fff;
+  background: linear-gradient(135deg, #0d3b54 0%, #1a5a7a 100%);
   padding: 80px 0 40px;
-  font-family: var(--font-body);
+  font-family: 'Inter', sans-serif;
   position: relative;
   overflow: hidden;
 }
 
-/* Add a subtle top border/glow */
 .premium-footer::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  width: 40%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.03) 100%);
+  pointer-events: none;
 }
 
+.premium-footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+}
+
+/* Grid Layout */
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.2fr 2fr; /* Brand column is wider */
-  gap: 60px;
-  margin-bottom: 80px;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 80px;
+  margin-bottom: 60px;
 }
 
-/* --- Brand Column --- */
+/* Brand Column */
+.footer-brand-col {
+  max-width: 380px;
+}
+
 .footer-logo {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
   margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+
+.footer-logo .dot {
+  color: #f36f21;
 }
 
 .footer-tagline {
-  color: #94a3b8; /* Muted slate text */
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 40px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 32px;
 }
 
-/* Newsletter Input */
+/* Newsletter Box */
+.newsletter-box {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+}
+
 .newsletter-label {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   font-weight: 600;
-  color: #fff;
-  margin-bottom: 12px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #f36f21;
+  margin-bottom: 16px;
 }
 
 .input-group {
   display: flex;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 6px;
-  border-radius: 8px;
-  max-width: 320px;
-  transition: border-color 0.2s;
-}
-
-.input-group:focus-within {
-  border-color: #3b82f6;
+  gap: 0;
 }
 
 .input-group input {
-  background: transparent;
-  border: none;
-  color: #fff;
-  padding: 10px 16px;
-  width: 100%;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: none;
+  border-radius: 4px 0 0 4px;
+  padding: 12px 16px;
+  font-size: 0.875rem;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
   outline: none;
-  font-family: var(--font-body);
+  transition: border-color 0.3s ease;
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.input-group input:focus {
+  border-color: #f36f21;
 }
 
 .input-group button {
-  background: #3b82f6;
-  border: none;
-  color: white;
-  padding: 8px 12px;
-  border-radius: 6px;
+  background: #f36f21;
+  border: 1px solid #f36f21;
+  border-radius: 0 4px 4px 0;
+  color: #ffffff;
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .input-group button:hover {
-  background: #2563eb;
+  background: #d45a10;
+  border-color: #d45a10;
 }
 
-/* --- Navigation Columns --- */
+/* Links Group */
 .footer-links-group {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -98,12 +130,12 @@
 }
 
 .link-col h4 {
-  font-family: var(--font-body); /* Keep headers simple */
-  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
   font-weight: 600;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 24px;
 }
 
@@ -114,70 +146,99 @@
 }
 
 .link-col li {
-  margin-bottom: 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .link-col a {
-  color: #94a3b8;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.2s;
+  transition: color 0.3s ease;
 }
 
 .link-col a:hover {
-  color: #fff;
+  color: #f36f21;
 }
 
-/* Hiring Badge */
 .hiring-badge {
-  background: rgba(34, 197, 94, 0.2);
-  color: #4ade80;
-  font-size: 0.7rem;
-  padding: 2px 6px;
-  border-radius: 4px;
-  margin-left: 8px;
+  font-size: 0.625rem;
   font-weight: 600;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  background: #f36f21;
+  color: #ffffff;
+  padding: 3px 8px;
+  border-radius: 3px;
 }
 
-/* --- Bottom Section --- */
+/* Footer Bottom */
 .footer-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  color: #64748b;
-  font-size: 0.85rem;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.copyright {
+  font-size: 0.813rem;
+  color: rgba(255, 255, 255, 0.6);
 }
 
 .social-links {
   display: flex;
-  gap: 20px;
+  gap: 12px;
 }
 
 .social-links a {
-  color: #64748b;
-  transition: color 0.2s;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #fff;
+  color: #ffffff;
+  background: #f36f21;
+  border-color: #f36f21;
 }
 
-/* --- Mobile Responsiveness --- */
-@media (max-width: 768px) {
+/* Responsive */
+@media (max-width: 900px) {
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 48px;
   }
-  
+
+  .footer-brand-col {
+    max-width: 100%;
+  }
+
+  .footer-links-group {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .premium-footer .container {
+    padding: 0 24px;
+  }
+
   .footer-links-group {
     grid-template-columns: 1fr;
+    gap: 32px;
   }
-  
+
   .footer-bottom {
-    flex-direction: column-reverse;
+    flex-direction: column;
     gap: 20px;
     text-align: center;
   }

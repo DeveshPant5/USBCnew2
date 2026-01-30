@@ -1,18 +1,19 @@
 import { UserPlus, Target, Trophy } from 'lucide-react';
 import { motion } from 'framer-motion';
+import './HowItWorks.css';
 
 const HowItWorks = () => {
   const steps = [
     {
       icon: UserPlus,
-      title: "Sign Up & Choose",
-      description: "Create your account and select your ideal funding amount from $25K to $200K",
+      title: "Fill In Details",
+      description: "Connect with us and select your ideal funding amount from $10,000 to $50,000,000",
       time: "2 minutes"
     },
     {
       icon: Target,
-      title: "Complete Evaluation",
-      description: "Demonstrate your trading skills through our two-phase evaluation",
+      title: "Offer Evaluation",
+      description: "We guarantee a 4-hour turnaround on offers after file submission",
       time: "Your pace"
     },
     {
@@ -23,127 +24,80 @@ const HowItWorks = () => {
     }
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }
+    }
+  };
+
   return (
-    <section id="how-it-works" style={{
-      padding: '120px 0',
-      background: 'linear-gradient(180deg, #FAFBFC 0%, #FFFFFF 100%)',
-      fontFamily: "'DM Sans', 'Roboto', sans-serif"
-    }}>
-      <div className="container" style={{
-        maxWidth: '1200px',
-        margin: '0 auto',
-        padding: '0 24px'
-      }}>
+    <section id="how-it-works" className="how-it-works-section">
+      <div className="how-it-works-container">
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          style={{ textAlign: 'center', marginBottom: '80px' }}
+          transition={{ duration: 0.8 }}
+          className="how-it-works-header"
         >
-          <h2 style={{
-            fontSize: 'clamp(2rem, 4vw, 3rem)',
-            fontWeight: '700',
-            color: '#0F172A',
-            marginBottom: '16px',
-            letterSpacing: '-0.02em'
-          }}>
-            How It Works
+          <p className="how-it-works-label">The Process</p>
+          <h2 className="how-it-works-title">
+            Easy Steps to <em>Scale</em>
           </h2>
-          <p style={{
-            fontSize: '1.125rem',
-            color: '#64748B',
-            maxWidth: '600px',
-            margin: '0 auto'
-          }}>
-            Three simple steps to becoming a funded trader
+          <p className="how-it-works-subtitle">
+            Three easy steps to get your funds within 24 hours
           </p>
         </motion.div>
 
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', // Increased min-width slightly for better 3-column look
-          gap: '40px',
-          position: 'relative'
-        }}>
+        {/* Steps Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="steps-grid"
+        >
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
-              style={{
-                position: 'relative',
-                textAlign: 'center'
-              }}
+              variants={itemVariants}
+              className="step-card"
             >
-              <div style={{
-                width: '80px',
-                height: '80px',
-                margin: '0 auto 24px',
-                background: 'linear-gradient(135deg, #2563EB 0%, #059669 100%)',
-                borderRadius: '20px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                boxShadow: '0 8px 24px rgba(37, 99, 235, 0.2)'
-              }}>
-                <step.icon size={36} color="#FFFFFF" strokeWidth={2} />
+              {/* Icon Container with Badge */}
+              <div className="step-icon-wrapper">
+                <motion.div
+                  className="step-icon-box"
+                  whileHover={{
+                    background: 'linear-gradient(135deg, #f36f21 0%, #ff8a47 100%)',
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <step.icon size={40} color="#FFFFFF" strokeWidth={1.5} />
+                </motion.div>
+
+                {/* Number Badge */}
+                <div className="step-number">{index + 1}</div>
               </div>
 
-              {/* Number Badge */}
-              <div style={{
-                position: 'absolute',
-                top: '0', 
-                left: '50%',
-                transform: 'translate(-50%, -50%) translateX(-40px) translateY(-10px)', // Adjusted to sit nicely on the icon corner
-                width: '32px',
-                height: '32px',
-                background: '#0F172A',
-                borderRadius: '50%',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '0.875rem',
-                fontWeight: '700',
-                color: '#FFFFFF',
-                zIndex: 2
-              }}>
-                {index + 1}
-              </div>
-
-              <h3 style={{
-                fontSize: '1.25rem',
-                fontWeight: '700',
-                color: '#0F172A',
-                marginBottom: '12px'
-              }}>
-                {step.title}
-              </h3>
-
-              <p style={{
-                fontSize: '0.95rem',
-                color: '#64748B',
-                lineHeight: '1.6',
-                marginBottom: '16px'
-              }}>
-                {step.description}
-              </p>
-
-              <div style={{
-                display: 'inline-block',
-                padding: '6px 16px',
-                background: '#EFF6FF',
-                color: '#2563EB',
-                borderRadius: '100px',
-                fontSize: '0.813rem',
-                fontWeight: '600'
-              }}>
-                {step.time}
-              </div>
+              <h3 className="step-title">{step.title}</h3>
+              <p className="step-description">{step.description}</p>
+              <div className="step-time">{step.time}</div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
