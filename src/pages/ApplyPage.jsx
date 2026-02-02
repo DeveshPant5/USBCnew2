@@ -134,7 +134,7 @@ const ApplyPage = () => {
     try {
       const submitData = new FormData();
 
-      submitData.append('access_key', '920df433-d44c-4ab5-85fc-8dd8d77aa8b9');
+      submitData.append('access_key', import.meta.env.VITE_WEB3FORMS_ACCESS_KEY);
 
       submitData.append('subject', 'New Business Funding Application - USBC Funding');
       submitData.append('from_name', formData.legalNameDBA || 'USBC Application');
