@@ -26,11 +26,11 @@ const Contact = () => {
   return (
     <section id="contact" className="contact-section">
 
-      {/* Background Glow Effects */}
+
       <div className="contact-bg-glow glow-purple"></div>
       <div className="contact-bg-glow glow-blue"></div>
 
-      {/* Section Header */}
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ const Contact = () => {
 
       <div className="contact-container">
 
-        {/* LEFT SIDE: The Form */}
+
         <motion.div
           initial={{ x: -50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -113,7 +113,7 @@ const Contact = () => {
           </form>
         </motion.div>
 
-        {/* RIGHT SIDE: Visuals & Info */}
+
         <motion.div
           initial={{ x: 50, opacity: 0 }}
           whileInView={{ x: 0, opacity: 1 }}
@@ -121,7 +121,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="contact-visuals"
         >
-          {/* Decorative Globe Element */}
+
           <div className="earth-wrapper">
             <motion.div
               className="earth-sphere"
@@ -131,7 +131,7 @@ const Contact = () => {
             <div className="earth-ring"></div>
           </div>
 
-          {/* Info Cards */}
+
           <div className="info-cards">
             <motion.div
               className="info-card"

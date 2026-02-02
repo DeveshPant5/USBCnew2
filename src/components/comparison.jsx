@@ -32,7 +32,7 @@ const Comparison = () => {
                 <th className="col-them" style={{ width: '35%' }}>TRADITIONAL BANKS</th>
               </tr>
             </thead>
-            {/* Animate the TBODY to stagger rows */}
+
             <motion.tbody
               initial="hidden"
               whileInView="visible"

@@ -42,7 +42,7 @@ const PrivacyPolicyPage = () => {
             background: '#ffffff',
             fontFamily: "'Inter', sans-serif",
         }}>
-            {/* Header */}
+
             <header style={{
                 background: '#ffffff',
                 backdropFilter: 'blur(20px)',
@@ -77,13 +77,13 @@ const PrivacyPolicyPage = () => {
                 </div>
             </header>
 
-            {/* Main Content */}
+
             <main style={{
                 maxWidth: '900px',
                 margin: '0 auto',
                 padding: '80px 48px',
             }}>
-                {/* Title */}
+
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ const PrivacyPolicyPage = () => {
                     </p>
                 </motion.div>
 
-                {/* Content Card */}
+
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ const PrivacyPolicyPage = () => {
                         padding: '48px',
                     }}
                 >
-                    {/* Protecting Your Privacy */}
+
                     <div style={highlightBoxStyle}>
                         <h2 style={{
                             fontSize: '1.375rem',
@@ -168,7 +168,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </div>
 
-                    {/* What We Collect */}
+
                     <section style={sectionStyle}>
                         <h2 style={headingStyle}>
                             <Eye size={20} color="#f36f21" />
@@ -184,7 +184,7 @@ const PrivacyPolicyPage = () => {
                         </ul>
                     </section>
 
-                    {/* How We Use Your Data */}
+
                     <section style={sectionStyle}>
                         <h2 style={headingStyle}>
                             <Users size={20} color="#f36f21" />
@@ -206,7 +206,7 @@ const PrivacyPolicyPage = () => {
                         </ul>
                     </section>
 
-                    {/* We Do Not Sell Your Data */}
+
                     <div style={{
                         ...highlightBoxStyle,
                         background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.08) 100%)',
@@ -230,7 +230,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </div>
 
-                    {/* Security Measures */}
+
                     <section style={sectionStyle}>
                         <h2 style={headingStyle}>
                             <Lock size={20} color="#f36f21" />
@@ -241,7 +241,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </section>
 
-                    {/* Third Parties */}
+
                     <section style={sectionStyle}>
                         <h2 style={headingStyle}>
                             <Users size={20} color="#f36f21" />
@@ -252,7 +252,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </section>
 
-                    {/* Cookies */}
+
                     <section style={sectionStyle}>
                         <h2 style={headingStyle}>
                             <Cookie size={20} color="#f36f21" />
@@ -263,7 +263,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </section>
 
-                    {/* External Links */}
+
                     <section style={sectionStyle}>
                         <h2 style={headingStyle}>
                             <ExternalLink size={20} color="#f36f21" />
@@ -274,7 +274,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </section>
 
-                    {/* Children's Privacy */}
+
                     <section style={sectionStyle}>
                         <h2 style={headingStyle}>
                             <Users size={20} color="#f36f21" />
@@ -285,7 +285,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </section>
 
-                    {/* Updates */}
+
                     <section style={sectionStyle}>
                         <h2 style={headingStyle}>
                             <RefreshCw size={20} color="#f36f21" />
@@ -296,7 +296,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </section>
 
-                    {/* Questions */}
+
                     <div style={highlightBoxStyle}>
                         <h2 style={{
                             fontSize: '1.375rem',
@@ -330,7 +330,7 @@ const PrivacyPolicyPage = () => {
                         </p>
                     </div>
 
-                    {/* Back to Home Button */}
+
                     <div style={{ textAlign: 'center', marginTop: '48px', paddingTop: '32px', borderTop: '1px solid rgba(13, 59, 84, 0.1)' }}>
                         <Link to="/" style={{ textDecoration: 'none' }}>
                             <motion.button
@@ -364,7 +364,7 @@ const PrivacyPolicyPage = () => {
                     </div>
                 </motion.div>
 
-                {/* Trust Indicator */}
+
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}

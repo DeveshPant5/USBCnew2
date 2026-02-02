@@ -44,7 +44,7 @@ const HowItWorks = () => {
   return (
     <section id="how-it-works" className="how-it-works-section">
       <div className="how-it-works-container">
-        {/* Section Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,7 @@ const HowItWorks = () => {
           </p>
         </motion.div>
 
-        {/* Steps Grid */}
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -75,7 +75,7 @@ const HowItWorks = () => {
               variants={itemVariants}
               className="step-card"
             >
-              {/* Icon Container with Badge */}
+
               <div className="step-icon-wrapper">
                 <motion.div
                   className="step-icon-box"
@@ -88,7 +88,7 @@ const HowItWorks = () => {
                   <step.icon size={40} color="#FFFFFF" strokeWidth={1.5} />
                 </motion.div>
 
-                {/* Number Badge */}
+
                 <div className="step-number">{index + 1}</div>
               </div>
 

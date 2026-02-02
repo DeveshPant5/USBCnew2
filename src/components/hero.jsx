@@ -45,7 +45,7 @@ const Hero = () => {
 
   return (
     <section className="hero-section">
-      {/* Video Background */}
+
       <div className="hero-video-container">
         <video
           autoPlay
@@ -61,10 +61,10 @@ const Hero = () => {
         </video>
       </div>
 
-      {/* Dark Teal Gradient Overlay */}
+
       <div className="hero-overlay" />
 
-      {/* Curved Wave Divider at Bottom */}
+
       <div className="hero-wave">
         <svg
           viewBox="0 0 1200 120"
@@ -78,7 +78,7 @@ const Hero = () => {
         </svg>
       </div>
 
-      {/* Large Watermark Letters */}
+
       <motion.div
         initial={{ opacity: 0, x: 100 }}
         animate={{ opacity: 0.06, x: 0 }}
@@ -88,19 +88,19 @@ const Hero = () => {
         U<br />S
       </motion.div>
 
-      {/* Main Content */}
+
       <motion.div
         className="hero-content"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        {/* Subtitle */}
+
         <motion.p variants={itemVariants} className="hero-subtitle">
           USBC Funding
         </motion.p>
 
-        {/* Main Headline with Word Animation */}
+
         <motion.h1 className="hero-headline">
           <motion.span className="hero-headline-words">
             {headlineText.split(' ').map((word, index) => (
@@ -122,13 +122,13 @@ const Hero = () => {
           </motion.span>
         </motion.h1>
 
-        {/* Description */}
+
         <motion.p variants={itemVariants} className="hero-description">
           Stop waiting on banks. Unlock <span className="hero-highlight">instant liquidity</span> with
           our network of 500+ lenders. From $10,000 to $50,000,000+.
         </motion.p>
 
-        {/* CTA Buttons */}
+
         <motion.div variants={itemVariants} className="hero-buttons">
           <Link to="/apply" className="hero-btn-link">
             <motion.button
@@ -157,7 +157,7 @@ const Hero = () => {
           </motion.a>
         </motion.div>
 
-        {/* Bottom Stats */}
+
         <motion.div variants={itemVariants} className="hero-stats">
           {stats.map((stat, index) => (
             <motion.div
@@ -174,7 +174,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll Indicator */}
+
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

@@ -1,5 +1,3 @@
-/* Success Stories Section - Responsive Slider */
-
 .stories-section {
     padding: 140px 0;
     background: #ffffff;
@@ -13,7 +11,6 @@
     padding: 0 48px;
 }
 
-/* Header */
 .stories-header {
     text-align: center;
     margin-bottom: 80px;
@@ -44,7 +41,6 @@
     margin: 0 auto 56px;
 }
 
-/* Stats Grid */
 .stories-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -76,7 +72,6 @@
     text-transform: uppercase;
 }
 
-/* Slider Wrapper */
 .slider-wrapper {
     position: relative;
     max-width: 700px;
@@ -84,7 +79,6 @@
     padding: 0 60px;
 }
 
-/* Navigation Arrows */
 .slider-arrow {
     position: absolute;
     top: 50%;
@@ -115,13 +109,11 @@
     right: 0;
 }
 
-/* Slider Viewport */
 .slider-viewport {
     overflow: hidden;
     padding: 20px 0;
 }
 
-/* Story Card */
 .story-card {
     background: linear-gradient(135deg, #f9fafb 0%, #ffffff 100%);
     border-radius: 16px;
@@ -231,7 +223,6 @@
     color: #f36f21;
 }
 
-/* Pagination Dots */
 .slider-dots {
     display: flex;
     justify-content: center;
@@ -263,7 +254,6 @@
     background: #f36f21;
 }
 
-/* Slide Counter */
 .slide-counter {
     display: flex;
     justify-content: center;
@@ -290,7 +280,6 @@
     color: #6b7280;
 }
 
-/* Responsive Design */
 @media (max-width: 900px) {
     .stories-section {
         padding: 100px 0;

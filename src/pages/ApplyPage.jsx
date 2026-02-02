@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const ApplyPage = () => {
   const [currentSection, setCurrentSection] = useState(0);
   const [formData, setFormData] = useState({
-    // Company Information
+
     legalEntityType: '',
     dateOfApplication: '',
     legalNameDBA: '',
@@ -21,7 +21,7 @@ const ApplyPage = () => {
     businessEmail: '',
     businessWebsite: '',
 
-    // Business Financial Information
+
     grossAnnualSales: '',
     averageMonthlySales: '',
     lastMonthSales: '',
@@ -29,12 +29,12 @@ const ApplyPage = () => {
     averageDailyBankBalance: '',
     businessBankInfo: '',
 
-    // Cash Advance Information
+
     existingCashAdvances: '',
     balanceOfCurrentAdvances: '',
     fundingCompany: '',
 
-    // Owner/Officer Information (1)
+
     owner1FirstName: '',
     owner1LastName: '',
     owner1Title: '',
@@ -48,7 +48,7 @@ const ApplyPage = () => {
     owner1PrintName: '',
     owner1DateSigned: '',
 
-    // Owner/Officer Information (2)
+
     owner2FirstName: '',
     owner2LastName: '',
     owner2Title: '',
@@ -62,9 +62,6 @@ const ApplyPage = () => {
     owner2PrintName: '',
     owner2DateSigned: '',
 
-    // Signature uploads
-    owner1Signature: null,
-    owner2Signature: null,
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -79,31 +76,10 @@ const ApplyPage = () => {
     });
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    if (file) {
-      // Accept any image file - validate by extension or MIME type
-      const fileName = file.name.toLowerCase();
-      const isValidImage = file.type.startsWith('image/') ||
-        fileName.endsWith('.jpg') ||
-        fileName.endsWith('.jpeg') ||
-        fileName.endsWith('.png');
 
-      if (isValidImage) {
-        setFormData({
-          ...formData,
-          [e.target.name]: file
-        });
-      } else {
-        alert('Please upload an image file (JPEG or PNG)');
-        e.target.value = '';
-      }
-    }
-  };
 
-  // Validation function for each section
+
   const validateSection = (sectionId) => {
-    // Section 2: Cash Advance - only require balance and funding company if user has existing advances
     const cashAdvanceFields = formData.existingCashAdvances === 'yes'
       ? ['existingCashAdvances', 'balanceOfCurrentAdvances', 'fundingCompany']
       : ['existingCashAdvances'];
@@ -112,8 +88,7 @@ const ApplyPage = () => {
       0: ['legalEntityType', 'dateOfApplication', 'legalNameDBA', 'stateOfInception', 'federalTaxId', 'businessInceptionDate', 'physicalAddress', 'city', 'state', 'zipCode', 'businessPhone', 'businessEmail', 'businessWebsite'],
       1: ['grossAnnualSales', 'averageMonthlySales', 'lastMonthSales', 'deposits', 'averageDailyBankBalance', 'businessBankInfo'],
       2: cashAdvanceFields,
-      3: ['owner1FirstName', 'owner1LastName', 'owner1Title', 'owner1DOB', 'owner1Ownership', 'owner1SSN', 'owner1Address', 'owner1City', 'owner1State', 'owner1Zip', 'owner1PrintName', 'owner1DateSigned', 'owner1Signature'],
-      // Section 4: Owner 2 is optional - no required fields
+      3: ['owner1FirstName', 'owner1LastName', 'owner1Title', 'owner1DOB', 'owner1Ownership', 'owner1SSN', 'owner1Address', 'owner1City', 'owner1State', 'owner1Zip', 'owner1PrintName', 'owner1DateSigned'],
       4: [],
     };
 
@@ -157,25 +132,30 @@ const ApplyPage = () => {
     setSubmitError('');
 
     try {
-      // Create FormData to handle file uploads
       const submitData = new FormData();
 
-      // Add all text fields
+      submitData.append('access_key', '920df433-d44c-4ab5-85fc-8dd8d77aa8b9');
+
+      submitData.append('subject', 'New Business Funding Application - USBC Funding');
+      submitData.append('from_name', formData.legalNameDBA || 'USBC Application');
+
       Object.keys(formData).forEach(key => {
         if (key !== 'owner1Signature' && key !== 'owner2Signature') {
-          submitData.append(key, formData[key]);
+          const value = formData[key];
+          if (value) {
+            const formattedKey = key
+              .replace(/([A-Z])/g, ' $1')
+              .replace(/^./, str => str.toUpperCase())
+              .replace(/owner1/gi, 'Owner 1 ')
+              .replace(/owner2/gi, 'Owner 2 ');
+            submitData.append(formattedKey, value);
+          }
         }
       });
 
-      // Add file uploads
-      if (formData.owner1Signature) {
-        submitData.append('owner1Signature', formData.owner1Signature);
-      }
-      if (formData.owner2Signature) {
-        submitData.append('owner2Signature', formData.owner2Signature);
-      }
 
-      const response = await fetch('http://localhost:3001/api/submit-application', {
+
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: submitData,
       });
@@ -189,7 +169,7 @@ const ApplyPage = () => {
       }
     } catch (error) {
       console.error('Submission error:', error);
-      setSubmitError('Unable to connect to server. Please make sure the backend server is running.');
+      setSubmitError('Unable to submit application. Please check your internet connection and try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -236,7 +216,7 @@ const ApplyPage = () => {
     marginBottom: '24px',
   };
 
-  // Helper function to render labels with asterisk
+
   const renderLabel = (text) => (
     <label style={labelStyle}>
       {text}<span style={asteriskStyle}>*</span>
@@ -426,30 +406,7 @@ const ApplyPage = () => {
             {renderLabel("Date Application Signed")}
             <input type="date" name={`${prefix}DateSigned`} value={formData[`${prefix}DateSigned`]} onChange={handleChange} style={inputStyle} required />
           </div>
-          <div style={{ ...fieldGroupStyle, gridColumn: '1 / -1' }}>
-            {renderLabel("Signature (JPEG or PNG format)")}
-            <input
-              type="file"
-              name={`${prefix}Signature`}
-              onChange={handleFileChange}
-              accept="image/*,.jpg,.jpeg,.png"
-              style={{
-                ...inputStyle,
-                padding: '12px 18px',
-                cursor: 'pointer'
-              }}
-            />
-            {formData[`${prefix}Signature`] && (
-              <p style={{
-                marginTop: '8px',
-                fontSize: '0.813rem',
-                color: '#10b981',
-                fontWeight: 500
-              }}>
-                âœ“ {formData[`${prefix}Signature`].name}
-              </p>
-            )}
-          </div>
+
         </div>
       </motion.div>
     );
@@ -560,7 +517,7 @@ const ApplyPage = () => {
       background: '#ffffff',
       fontFamily: "'Inter', sans-serif",
     }}>
-      {/* Header */}
+
       <header style={{
         background: '#ffffff',
         backdropFilter: 'blur(20px)',
@@ -595,13 +552,13 @@ const ApplyPage = () => {
         </div>
       </header>
 
-      {/* Main Content */}
+
       <main style={{
         maxWidth: '1000px',
         margin: '0 auto',
         padding: '80px 48px',
       }}>
-        {/* Title */}
+
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -641,7 +598,7 @@ const ApplyPage = () => {
 
 
 
-        {/* Form Card */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -653,7 +610,7 @@ const ApplyPage = () => {
             padding: '48px',
           }}
         >
-          {/* Section Title */}
+
           <div style={{
             borderBottom: '1px solid #e5e7eb',
             paddingBottom: '20px',
@@ -680,7 +637,7 @@ const ApplyPage = () => {
           <form onSubmit={handleSubmit}>
             {renderCurrentSection()}
 
-            {/* Navigation Buttons */}
+
             <div style={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -788,7 +745,7 @@ const ApplyPage = () => {
               )}
             </div>
 
-            {/* Error Message */}
+
             {submitError && (
               <motion.div
                 initial={{ opacity: 0, y: -10 }}
@@ -810,7 +767,7 @@ const ApplyPage = () => {
           </form>
         </motion.div>
 
-        {/* Trust Indicators */}
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

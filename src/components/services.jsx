@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './Services.css';
 
-// Animation Variants
+
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
@@ -70,7 +70,7 @@ const Services = () => {
   return (
     <section id="services" className="services-section" style={{ background: '#ffffff', padding: '120px 0' }}>
       <div className="container" style={{ maxWidth: '1200px', margin: '0 auto', padding: '0 48px' }}>
-        {/* Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +98,7 @@ const Services = () => {
           </p>
         </motion.div>
 
-        {/* Services Grid */}
+
         <motion.div
           style={{
             display: 'grid',
@@ -127,7 +127,7 @@ const Services = () => {
                 boxShadow: '0 20px 60px -15px rgba(13, 59, 84, 0.15)'
               }}
             >
-              {/* Icon */}
+
               <div style={{
                 width: '56px',
                 height: '56px',
@@ -142,7 +142,7 @@ const Services = () => {
                 {s.icon}
               </div>
 
-              {/* Title */}
+
               <h3 style={{
                 fontSize: '1.125rem',
                 fontFamily: "'Inter', sans-serif",
@@ -153,7 +153,7 @@ const Services = () => {
                 {s.title}
               </h3>
 
-              {/* Description */}
+
               <p style={{
                 fontSize: '0.95rem',
                 color: '#374151',
@@ -163,7 +163,7 @@ const Services = () => {
                 {s.desc}
               </p>
 
-              {/* Why USBC */}
+
               <p style={{
                 fontSize: '0.875rem',
                 color: '#6b7280',
@@ -175,7 +175,7 @@ const Services = () => {
                 {s.whyUs}
               </p>
 
-              {/* Funding Details */}
+
               <div style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 1fr',
@@ -228,7 +228,7 @@ const Services = () => {
           ))}
         </motion.div>
 
-        {/* CTA Buttons */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

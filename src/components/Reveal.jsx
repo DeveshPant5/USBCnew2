@@ -3,7 +3,7 @@ import { motion, useInView, useAnimation } from "framer-motion";
 
 export const Reveal = ({ children, width = "fit-content", delay = 0 }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-75px" }); // Triggers when element is 75px into view
+  const isInView = useInView(ref, { once: true, margin: "-75px" });
   const mainControls = useAnimation();
 
   useEffect(() => {

@@ -50,7 +50,7 @@ const About = () => {
         margin: '0 auto',
         padding: '0 48px'
       }}>
-        {/* Header Section */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ const About = () => {
           </p>
         </motion.div>
 
-        {/* Values Grid */}
+
         <motion.div
           variants={containerVariants}
           initial="hidden"

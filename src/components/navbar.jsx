@@ -3,7 +3,7 @@ import { ChevronDown, Menu, X, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
-// IMPORT THE LOGO HERE (Adjust path if you saved it elsewhere)
+
 import logoImg from '../assets/logo.png';
 
 const Navbar = () => {
@@ -52,13 +52,13 @@ const Navbar = () => {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="container nav-container">
-        {/* --- MODIFIED LOGO SECTION --- */}
+
         <a href="#" className="logo">
           <img src={logoImg} alt="USBC Funding Logo" className="logo-icon" />
           <span>USBC Funding <span className="dot">.</span></span>
         </a>
 
-        {/* Desktop Navigation */}
+
         <div className="nav-center">
           {navItems.map((item, index) => (
             <div
@@ -96,7 +96,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Desktop Action Buttons */}
+
         <div className="nav-actions">
           <a href="#contact" className="nav-cta-btn">
             <span>Contact Us</span>
@@ -104,7 +104,7 @@ const Navbar = () => {
           </a>
         </div>
 
-        {/* Mobile Hamburger */}
+
         <button
           className="hamburger"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -114,7 +114,7 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -174,7 +174,7 @@ const Navbar = () => {
                 </div>
               ))}
 
-              {/* Mobile Contact Button */}
+
               <div style={{ marginTop: '24px' }}>
                 <a
                   href="#contact"

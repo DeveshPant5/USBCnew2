@@ -1,5 +1,3 @@
-/* Premium Comparison Section - Credibly Dark Teal Theme */
-
 .comparison-section {
   padding: 140px 0;
   background: linear-gradient(135deg, #0d3b54 0%, #1a5a7a 100%);
@@ -99,7 +97,6 @@
   flex-shrink: 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .comparison-section .container {
     padding: 0 24px;

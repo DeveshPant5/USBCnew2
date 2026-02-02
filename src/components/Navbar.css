@@ -1,5 +1,3 @@
-/* Premium Navbar Styles - Credibly Dark Teal Theme */
-
 .navbar {
   position: fixed;
   top: 0;
@@ -31,7 +29,6 @@
   justify-content: space-between;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -73,7 +70,6 @@
   color: #f36f21;
 }
 
-/* Navigation Center */
 .nav-center {
   display: flex;
   align-items: center;
@@ -122,7 +118,6 @@
   transform: rotate(180deg);
 }
 
-/* Right Section: CTA Buttons */
 .nav-actions {
   display: flex;
   align-items: center;
@@ -131,7 +126,6 @@
   min-width: max-content;
 }
 
-/* Sign In Button - Outlined */
 .nav-signin-btn {
   display: flex;
   align-items: center;
@@ -164,7 +158,6 @@
   color: #ffffff;
 }
 
-/* Apply Now Button - Orange CTA */
 .nav-cta-btn {
   display: flex;
   align-items: center;
@@ -206,7 +199,6 @@
   transform: translateX(3px);
 }
 
-/* Dropdown Menu */
 .dropdown-menu {
   position: absolute;
   top: 100%;
@@ -247,7 +239,6 @@
   font-size: 0.8rem;
 }
 
-/* Mobile Hamburger */
 .hamburger {
   display: none;
   background: none;
@@ -261,7 +252,6 @@
   color: #0d3b54;
 }
 
-/* Mobile Responsive */
 @media (max-width: 1024px) {
 
   .nav-center,
@@ -278,7 +268,6 @@
   }
 }
 
-/* Mobile Menu */
 .mobile-menu {
   position: fixed;
   top: 80px;

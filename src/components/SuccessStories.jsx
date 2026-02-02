@@ -107,7 +107,7 @@ const SuccessStories = () => {
     setCurrentIndex(index);
   };
 
-  // Auto-play functionality
+
   useEffect(() => {
     if (!isAutoPlaying) return;
     const interval = setInterval(nextSlide, 5000);
@@ -139,7 +139,7 @@ const SuccessStories = () => {
   return (
     <section id="stories" className="stories-section">
       <div className="stories-container">
-        {/* Header */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,7 +151,7 @@ const SuccessStories = () => {
           <h2 className="stories-title">Success Stories</h2>
           <p className="stories-subtitle">Real businesses, real results, real growth</p>
 
-          {/* Stats */}
+
           <div className="stories-stats">
             {stats.map((stat, index) => (
               <motion.div
@@ -169,13 +169,13 @@ const SuccessStories = () => {
           </div>
         </motion.div>
 
-        {/* Slider Container */}
+
         <div
           className="slider-wrapper"
           onMouseEnter={() => setIsAutoPlaying(false)}
           onMouseLeave={() => setIsAutoPlaying(true)}
         >
-          {/* Navigation Arrows */}
+
           <motion.button
             onClick={prevSlide}
             whileHover={{ scale: 1.1 }}
@@ -196,7 +196,7 @@ const SuccessStories = () => {
             <ChevronRight size={24} color="#ffffff" />
           </motion.button>
 
-          {/* Single Card Slider */}
+
           <div className="slider-viewport">
             <AnimatePresence initial={false} custom={direction} mode="wait">
               <motion.div
@@ -247,7 +247,7 @@ const SuccessStories = () => {
             </AnimatePresence>
           </div>
 
-          {/* Pagination Dots */}
+
           <div className="slider-dots">
             {stories.map((_, index) => (
               <motion.button
@@ -260,7 +260,7 @@ const SuccessStories = () => {
             ))}
           </div>
 
-          {/* Slide Counter */}
+
           <div className="slide-counter">
             <span className="current-slide">{String(currentIndex + 1).padStart(2, '0')}</span>
             <span className="slide-separator">/</span>

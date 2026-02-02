@@ -7,10 +7,10 @@ const Footer = () => {
     <footer className="premium-footer">
       <div className="container">
 
-        {/* Top Section: Brand & Newsletter vs Links */}
+
         <div className="footer-grid">
 
-          {/* Column 1: Brand & Newsletter */}
+
           <div className="footer-brand-col">
             <div className="footer-logo">
               USBC Capital<span className="dot">.</span>
@@ -31,7 +31,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Columns 2-4: Navigation Links */}
+
           <div className="footer-links-group">
             <div className="link-col">
               <h4>Product</h4>
@@ -64,7 +64,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Section: Copyright & Socials */}
+
         <div className="footer-bottom">
           <span className="copyright">
             &copy; {new Date().getFullYear()} USBC Funding All rights reserved.
